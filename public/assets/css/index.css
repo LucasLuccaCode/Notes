@@ -1,0 +1,43 @@
+:root {
+  --details-color: #00b1ff;
+  --details-color-dark: #0090cf;
+  --primary-color: #2a2a2a;
+  --secondary-color: #444444;
+  --text-color-dark: #747383;
+  --margin-default: .7rem;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body, 
+html {
+  width: 100%;
+  height: 100%;
+  font-size: 18px;
+}
+
+li {
+  list-style: none; 
+}
+
+a {
+  text-decoration: none;
+}
+
+button,
+input {
+  border: none;
+  outline: none;
+}
+
+.c-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+

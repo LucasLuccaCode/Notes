@@ -1,0 +1,32 @@
+<%- include("./includes/head") %>
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <link rel="stylesheet" href="/assets/css/content.css">
+  <script src="/assets/js/index.js" defer></script>
+  <title>Notes</title>
+  </head>
+
+  <body>
+    <section class="c-container">
+      <!-- MENU -->
+      <%- include("./includes/menu") %>
+
+      <!-- CONTENT -->
+      <div class="c-content">
+        <%- include("./includes/content") %>
+
+        <!-- VIEW NOTE -->
+        <div class="view-note">
+          <a href="javascript:history.back()">
+            <img src="/icons/back.png" alt="Voltar">
+          </a>
+          <div>
+            <h2><%= note.title %></h2>
+            <h3><%= note.description %></h3>
+          </div>
+      </div>
+
+
+    </section>
+  </body>
+
+  </html>

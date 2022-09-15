@@ -1,0 +1,29 @@
+<ul class="c-content__notes">
+  <% if(notes.length){ %>
+    <% notes.forEach( note => { %>
+      <li class="card">
+        <a href="/note/<%= note._id %>">
+
+          <div class="card-title">
+            <div class="pointers">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <p><%= note.title %></p>
+          </div>
+          <div class="card-description">
+            <p><%= note.description %></p>
+          </div>
+          <div class="card-footer">
+            <p><%= note.date %></p>
+          </div>
+        </a>
+      </li>
+    <% }) %>  
+  <% } else { %>
+    <li class="card">
+      <p>Nenhuma nota adicionada ainda...</p>
+    </li>
+  <% } %>
+</ul>
