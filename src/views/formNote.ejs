@@ -1,0 +1,31 @@
+<%- include("./includes/head") %>
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <link rel="stylesheet" href="/assets/css/content.css">
+  <script src="/assets/js/index.js" defer></script>
+  <title>Actions Note</title>
+  </head>
+
+  <body>
+    <section class="c-container">
+      <!-- MENU -->
+      <%- include("./includes/menu") %>
+
+        <!-- CONTENT -->
+        <div class="c-content">
+          <%- include("./includes/content") %>
+          <% if(action == "register") { %>
+          <form class="c-content__form" action="/note/form/register" method="POST">
+            <% } else { %>
+          <form class="c-content__form" action="/note/form/update" method="POST">
+          <% } %>
+            <h2><%- action == "register" ? "Adicionar" : "Editar" %> nota</h2>
+            <input type="text" name="title" placeholder="Titulo">
+            <textarea placeholder="Descrição" name="description" id="description" rows="10"></textarea>
+            <button type="click">Cancelar</button>
+            <button type="submit">Salvar</button>
+          </form>
+        </div>
+    </section>
+  </body>
+
+  </html>

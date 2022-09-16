@@ -10,6 +10,8 @@ router.get("/", homeControllers.index)
 
 
 //Routes Note
-router.get("/note/:id", noteControllers.viewNote)
+router.get("/note/view/:id", noteControllers.viewNote)
+router.get("/note/form", noteControllers.form)
+router.post("/note/form/register", noteControllers.register)
 
 module.exports = router

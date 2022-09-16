@@ -11,7 +11,7 @@
   display: flex;
   /* background: var(--secondary-color); */
   background: rgba(255,255,255, .07);
-  padding: .5rem 1rem;
+  padding: 0 calc(var(--margin-default) * 2);
   height: 2.5rem;
 }
 
@@ -107,13 +107,19 @@
 .c-content__add  {
   display: flex;
   align-items: center;
+  padding: .4rem;
+  border-radius: .2rem;
+}
+
+.c-content__add:hover  {
+  background: rgba(255,255,255, .1);
 }
 
 .c-content__add span {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 100%;
+  font-size: .8rem;
   width: 1rem;
   height: 1rem;
   font-weight: bold;
@@ -133,14 +139,15 @@
 
 .c-content__notes {
   display: flex;
+  align-content: flex-start;
   flex-wrap: wrap;
   width: calc(100% - var(--margin-default) * 3 - .1rem);
   gap: .6rem;
   flex: 1;
+  padding-bottom: 1rem;
   margin-left: calc(var(--margin-default) * 2);
   margin-right: calc(var(--margin-default ) - .5rem);
   overflow-y: auto;
-  padding-bottom: 1rem;
 }
 
 .view-note {
@@ -182,10 +189,11 @@
 .card {
   width: calc(33% - .5rem);
   height: 170px;
+  justify-content: space-between;
   border-radius: .4rem;
   background: var(--secondary-color);
-  box-shadow: rgba(0,0,0, .12) 0px 1px 2px 0px,
-  rgba(0,0,0, .09) 0px 1px 3px 1px;
+  box-shadow: rgba(0,0,0, .09) 0px 1px 2px 0px,
+  rgba(0,0,0, .05) 0px 1px 3px 1px;
 }
 
 .card a {
@@ -232,7 +240,7 @@
 .card-title p {
   font-size: .8rem;
   color: #a2a1a5;
-  margin-left: .2rem;
+  margin-left: .5rem;
   flex: 1;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -264,4 +272,55 @@
   color: #929195;
   text-align: center;
   color: var(--text-color-dark);
+}
+
+/* FORM */
+
+.c-content__form {
+  --_margin-top: 1rem;
+  --_color: #efefff;
+  --_b-radius: 3px;
+  margin: 0 auto;
+  width: 50%;
+}
+
+.c-content__form h2 {
+  text-align: center;
+  font-size: 1rem;
+  color: var(--_color);
+}
+
+.c-content__form input,
+.c-content__form textarea {
+  background: var(--secondary-color);
+  width: 100%;
+  margin-top: var(--_margin-top);
+  color: var(--_color);
+  padding: .5rem;
+  border-radius: var(--_b-radius);
+}
+
+.c-content__form input:focus,
+.c-content__form textarea:focus {
+  outline: 2px solid var(--details-color);
+}
+
+.c-content__form textarea {
+  resize: none;
+  border: none;
+}
+
+.c-content__form button {
+  cursor: pointer;
+  margin-top: var(--_margin-top);
+  padding: .5rem 2rem;
+  font-size: .7rem;
+  font-weight: bold;
+  border-radius: var(--_b-radius);
+  background: rgba(255,255,255, .1);
+  color: var(--_color);
+}
+
+.c-content__form button:last-child {
+  background: var(--details-color);
 }

@@ -14,13 +14,7 @@ class Notes {
   }
   async register(){
     this.validate()
-
-    try {
-      const notes = await NotesModel.insertOne(this.data)
-      console.log(notes)
-    } catch(err){
-      console.log(err)
-    }
+    await NotesModel.create(this.data)
   }
   validate(){
     this.cleanUp()
