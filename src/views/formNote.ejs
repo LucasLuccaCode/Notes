@@ -1,6 +1,4 @@
 <%- include("./includes/head") %>
-  <link rel="stylesheet" href="/assets/css/menu.css">
-  <link rel="stylesheet" href="/assets/css/content.css">
   <script src="/assets/js/index.js" defer></script>
   <title>Actions Note</title>
   </head>
@@ -16,12 +14,12 @@
           <% if(action == "register") { %>
           <form class="c-content__form" action="/note/form/register" method="POST">
             <% } else { %>
-          <form class="c-content__form" action="/note/form/update" method="POST">
+          <form class="c-content__form" action="/note/form/update?id=<%- action == 'edit' ? note._id : '' %>" method="POST">
           <% } %>
             <h2><%- action == "register" ? "Adicionar" : "Editar" %> nota</h2>
-            <input type="text" name="title" placeholder="Titulo">
-            <textarea placeholder="Descrição" name="description" id="description" rows="10"></textarea>
-            <button type="click">Cancelar</button>
+            <input type="text" name="title" placeholder="Titulo" value="<%- action == 'edit' ? note.title : '' %>">
+            <textarea placeholder="Descrição" name="description" id="description" rows="10"><%- action == 'edit' ? note.description : '' %></textarea>
+            <a href="/">Cancelar</a>
             <button type="submit">Salvar</button>
           </form>
         </div>

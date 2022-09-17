@@ -9,35 +9,44 @@ const NotesSchema = new mongoose.Schema({
 const NotesModel = mongoose.model("Notes", NotesSchema)
 
 class Notes {
-  constructor(body){
+  constructor(body) {
     this.data = body
   }
-  async register(){
+  async register() {
     this.validate()
     await NotesModel.create(this.data)
   }
-  validate(){
+  async update(_id) {
+    this.validate()
+    await NotesModel.updateOne({ _id }, { $set: this.data })
+  }
+  validate() {
     this.cleanUp()
   }
-  cleanUp(){
+  cleanUp() {
     this.data = {
       title: this.data.title,
       description: this.data.description,
-      date: (new Date()).toLocaleDateString('pt-BR', {timeZone: 'UTC'})
+      date: (new Date()).toLocaleDateString('pt-BR', { timeZone: 'UTC' })
     }
   }
-  static async getNotes(){
-    try{
+  static async delete(_id) {
+    await NotesModel.deleteOne({ _id })
+  }
+  static async getNotes() {
+    try {
       return await NotesModel.find()
-    } catch(err){
+    } catch (err) {
       console.log(err)
+      return null
     }
   }
-  static async getNote(_id){
-    try{
+  static async getNote(_id) {
+    try {
       return await NotesModel.findOne({ _id: _id })
-    } catch(err){
+    } catch (err) {
       console.log(err)
+      return null
     }
   }
 }

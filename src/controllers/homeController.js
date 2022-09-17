@@ -1,11 +1,11 @@
 const Notes = require("../models/Notes")
 
 exports.index = async (req, res) => {
-  try{
+  try {
     const notes = await Notes.getNotes()
     res.render("home", { notes })
     return
-  } catch(err){
+  } catch (err) {
     console.log(err)
     res.send("Erro ao acessar página.")
   }

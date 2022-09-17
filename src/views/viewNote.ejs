@@ -1,6 +1,4 @@
 <%- include("./includes/head") %>
-  <link rel="stylesheet" href="/assets/css/menu.css">
-  <link rel="stylesheet" href="/assets/css/content.css">
   <script src="/assets/js/index.js" defer></script>
   <title>Notes</title>
   </head>
@@ -22,6 +20,10 @@
           <div>
             <h2><%= note.title %></h2>
             <h3><%= note.description %></h3>
+          </div>
+          <div class="buttons">
+            <a href="/note/form?action=edit&id=<%= note._id %>">Editar</a>
+            <a href="/note/delete?id=<%= note._id %>">Apagar</a>
           </div>
       </div>
 
