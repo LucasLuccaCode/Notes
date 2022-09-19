@@ -13,8 +13,8 @@
         <%- include("./includes/content") %>
 
         <!-- VIEW NOTE -->
-        <div class="view-note">
-          <a href="javascript:history.back()">
+        <div class="c-content__content c-view_notes">
+          <a href="/">
             <img src="/icons/back.png" alt="Voltar">
           </a>
           <div>
@@ -22,8 +22,9 @@
             <h3><%= note.description %></h3>
           </div>
           <div class="buttons">
-            <a href="/note/form?action=edit&id=<%= note._id %>">Editar</a>
-            <a href="/note/delete?id=<%= note._id %>">Apagar</a>
+            <a style="--_color: #efefef" href="/note/form?action=edit&id=<%= note._id %>">Editar</a>
+            <a style="--_color: #f3bf51" href="/note/delete?id=<%= note._id %>">Apagar</a>
+            <a style="--_color: rgb(250, 53, 162)" href="/note/favorite?id=<%= note._id %>"><%- note.favorite ? 'Desfavoritar' : 'Favoritar' %></a>
           </div>
       </div>
 

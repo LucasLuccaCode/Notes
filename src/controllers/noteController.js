@@ -1,8 +1,11 @@
 const Notes = require("../models/Notes")
+const Recents = require("../models/Recents")
 
 exports.viewNote = async (req, res) => {
   const _id = req.params.id
   const note = await Notes.getNote(_id)
+  const recents = new Recents(note._id)
+  await recents.register()
   res.render("viewNote", { note })
 }
 
@@ -52,4 +55,10 @@ exports.delete = async (req, res) => {
     console.log(err)
     res.redirect("back")
   }
+}
+
+exports.favorite = async (req, res) => {
+  const id = req.query.id
+  await Notes.toggleFavorite(id)
+  res.redirect("back")
 }

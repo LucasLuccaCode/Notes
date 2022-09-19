@@ -77,6 +77,7 @@
 
 .c-content__nav ul {
   display: flex;
+  gap: .2rem;
   flex: 1;
 }
 
@@ -89,6 +90,10 @@
 }
 
 .c-content__nav li:hover {
+  background: rgba(255, 255, 255, .1);
+}
+
+.c-content__nav li.active {
   background: var(--details-color);
   color: #efefff;
 }
@@ -102,7 +107,8 @@
   font-size: .7rem;
 }
 
-.c-content__nav li:hover a {
+.c-content__nav li:hover a,
+.c-content__nav li.active a {
   color: #efefff;
 }
 
@@ -158,59 +164,51 @@
   overflow-y: auto;
 }
 
-.view-note {
+.c-content__content {
   margin: 0 calc(var(--margin-default) * 2);
   overflow-y: auto;
   flex: 1;
 }
 
-.view-note a {
+.c-view_notes a {
   display: inline-flex;
 }
 
-.view-note img {
+.c-view_notes img {
   width: 1.2rem;
   height: 1.2rem;
 }
 
-.view-note h2 {
+.c-view_notes h2 {
   font-size: 1rem;
   color: #aaaab0;
   margin-top: 1rem;
 }
 
-.view-note h3 {
+.c-view_notes h3 {
   font-size: .9rem;
   margin-top: .5rem;
-  color: #aaaab0;
+  color: #efefff;
   font-weight: 450;
 }
 
-.view-note .buttons {
+.c-view_notes .buttons {
+  --_color: #efefff;
   margin-top: 1rem;
 }
 
-.view-note .buttons a {
+.c-view_notes .buttons a {
   cursor: pointer;
   padding: .4rem .8rem;
   font-size: .7rem;
   border-radius: .2rem;
   font-weight: bold;
+  border: 2px solid var(--_color);
+  color: var(--_color);
 }
 
-.view-note .buttons a:active {
+.c-view_notes .buttons a:active {
   transform: scale(.95)
-}
-
-.view-note .buttons a:first-child {
-  background: #efefff;
-  color: #5a5a60;
-}
-
-.view-note .buttons a:last-child {
-  background: rgb(250, 53, 162);
-  color: #efefff;
-  margin-left: .2rem;
 }
 
 .c-content__notes::-webkit-scrollbar {
