@@ -51,6 +51,7 @@
 [data-settings="details-color"] label:nth-child(2) {
   background: var(--details-color);
   color: var(--details-color);
+  cursor: pointer;
 }
 
 .c-settings .buttons {

@@ -10,6 +10,7 @@ const getMenuData = async () => {
       total: notes.length,
       favorites: favorites.length,
       recents: recents.length,
+      recents_ids: JSON.stringify(recents.map( recent => recent.note_id ))
     },
     notes
   }
@@ -24,7 +25,6 @@ exports.index = async (req, res) => {
       nav: "all",
       menu
     })
-    return
   } catch (err) {
     console.log(err)
     res.send("Erro ao obter os dados das notas.")

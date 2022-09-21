@@ -6,9 +6,13 @@
 
           <div class="c-card__title">
             <div class="pointers">
-              <span></span>
-              <span></span>
-              <span></span>
+              <span style="--color: #64c257"></span>
+              <% if(note.favorite){ %>
+                <span style="--color: #ef6a64"></span>
+              <% } %>
+              <% if(menu.recents_ids.includes(note._id)){ %>
+                <span style="--color: #f3bf51"></span>
+              <% } %>
             </div>
             <p><%= note.title %></p>
           </div>

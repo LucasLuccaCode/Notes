@@ -6,7 +6,7 @@ exports.viewNote = async (req, res) => {
   const note = await Notes.getNote(_id)
   const recents = new Recents(note._id)
   await recents.register()
-  res.render("viewNote", { 
+  res.render("view-note", { 
     note, 
     menu: req.session.menu 
   })
@@ -16,7 +16,7 @@ exports.form = async (req, res) => {
   const { action, id } = req.query
   if (id) {
     const note = await Notes.getNote(id)
-    res.render("formNote", { 
+    res.render("form-note", { 
       action, 
       id, 
       note, 
@@ -24,7 +24,7 @@ exports.form = async (req, res) => {
     })
     return
   }
-  res.render("formNote", { 
+  res.render("form-note", { 
     action, 
     id, 
     menu: req.session.menu 
@@ -58,6 +58,7 @@ exports.update = async (req, res) => {
 exports.delete = async (req, res) => {
   try {
     await Notes.delete(req.query.id)
+    await Recents.delete(req.query.id)
     res.redirect("/")
     return
   } catch (err) {

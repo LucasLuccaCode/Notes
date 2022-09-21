@@ -30,7 +30,10 @@ class Recents {
     }
   }
   static async getRecents(){
-    return await RecentModel.find()
+    return await RecentModel.find({},{ note_id: 1, _id: 0 })
+  }
+  static async delete(note_id){
+    await RecentModel.deleteOne({ note_id })
   }
 }
 

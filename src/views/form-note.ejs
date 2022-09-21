@@ -19,7 +19,7 @@
           <% } %>
             <h2 class="caption"><%- action == "register" ? "Adicionar" : "Editar" %> nota</h2>
             <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-            <input type="text" name="title" placeholder="Titulo" value="<%- action == 'edit' ? note.title : '' %>" required>
+            <input type="text" name="title" placeholder="Titulo" value="<%- action == 'edit' ? note.title : '' %>" required autofocus>
             <textarea placeholder="Descrição" name="description" id="description" rows="10" required><%- action == 'edit' ? note.description : '' %></textarea>
             <div>
               <a href="/">Cancelar</a>

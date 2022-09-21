@@ -137,6 +137,7 @@
 .c-card__title .pointers {
   display: flex;
   align-items: center;
+  gap: .2rem;
   justify-content: space-between;
 }
 
@@ -145,26 +146,13 @@
   height: var(--margin-default);
   border-radius: 50px;
   background: white;
-  margin-left: .2rem;
-}
-
-.c-card__title .pointers span:nth-child(1) {
-  background: #ef6a64;
-  margin: 0;
-}
-
-.c-card__title .pointers span:nth-child(2) {
-  background: #f3bf51;
-}
-
-.c-card__title .pointers span:nth-child(3) {
-  background: #64c257;
+  background: var(--color);
 }
 
 .c-card__title p {
   flex: 1;
   font-size: .8rem;
-  color: #a2a1a5;
+  color: #b2b1b5;
   margin-left: var(--margin-default);
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -184,7 +172,7 @@
   --font-size: .8rem;
   display: -webkit-box;
   font-size: var(--font-size);
-  color: #cfcfdf;
+  color: #a2a1a5;
   text-overflow: ellipsis;
   overflow: hidden;
   /* number of lines to show */
