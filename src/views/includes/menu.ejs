@@ -6,47 +6,34 @@
 
   <ul class="c-menu__main">
     <li>
-      <a href="#">
-        <img src="/icons/fb.png" alt="">
-        <span>Todas</span>
+      <a href="/" style="--_color: #64c257">
+        <span>Todas: <%= menu.total %></span>
       </a>
     </li>
     <li>
-      <a href="#">
-        <img src="/icons/fb.png" alt="">
-        <span>Recentes</span>
+      <a href="/nav/favorites" style="--_color: #ef6a64">
+        <span>Favoritas: <%= menu.favorites %></span>
       </a>
     </li>
     <li>
-      <a href="#">
-        <img src="/icons/fb.png" alt="">
-        <span>Favoritas</span>
+      <a href="/nav/recents" style="--_color: #f3bf51">
+        <span>Recentes: <%= menu.recents %></span>
+      </a>
+    </li>
+
+    <li>
+      <a class="menu-add" href="/note/form?action=register" style="--_color: #30f3b1">
+        <span>Adicionar nota</span>
       </a>
     </li>
     <li>
-      <a href="#">
-        <img src="/icons/fb.png" alt="">
+      <a class="menu-settings" href="/nav/settings" style="--_color: #efefff">
         <span>Configurar</span>
       </a>
     </li>
   </ul>
 
-  <div></div>
-  <ul class="c-menu__footer">
-    <li>
-      <a href="#" title="Facebook">
-        <img src="/icons/fb.png" alt="Facebook">
-      </a>
-    </li>
-    <li>
-      <a href="#" title="Github">
-        <img src="/icons/gh.png" alt="Github">
-      </a>
-    </li>
-    <li>
-      <a href="#" title="Google">
-        <img src="/icons/go.png" alt="Google">
-      </a>
-    </li>
-  </ul>
+  <div class="c-menu__footer">
+    by MrRobot
+  </div>
 </div>

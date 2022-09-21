@@ -1,4 +1,5 @@
 <%- include("./includes/head") %>
+  <link rel="stylesheet" href="/assets/css/form.css">
   <script src="/assets/js/index.js" defer></script>
   <title>Actions Note</title>
   </head>
@@ -16,12 +17,14 @@
             <% } else { %>
           <form class="c-content__form" action="/note/form/update?id=<%- action == 'edit' ? note._id : '' %>" method="POST">
           <% } %>
-            <h2><%- action == "register" ? "Adicionar" : "Editar" %> nota</h2>
+            <h2 class="caption"><%- action == "register" ? "Adicionar" : "Editar" %> nota</h2>
             <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-            <input type="text" name="title" placeholder="Titulo" value="<%- action == 'edit' ? note.title : '' %>">
-            <textarea placeholder="Descrição" name="description" id="description" rows="10"><%- action == 'edit' ? note.description : '' %></textarea>
-            <a href="/">Cancelar</a>
-            <button type="submit">Salvar</button>
+            <input type="text" name="title" placeholder="Titulo" value="<%- action == 'edit' ? note.title : '' %>" required>
+            <textarea placeholder="Descrição" name="description" id="description" rows="10" required><%- action == 'edit' ? note.description : '' %></textarea>
+            <div>
+              <a href="/">Cancelar</a>
+              <button type="submit">Salvar</button>
+            </div>
           </form>
         </div>
     </section>

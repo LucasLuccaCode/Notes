@@ -36,19 +36,12 @@ class Notes {
     await NotesModel.deleteOne({ _id })
   }
   static async getNotes(ids) {
-    if(!ids){
-      try {
-        return await NotesModel.find()
-      } catch (err) {
-        console.log(err)
-        return null
-      }
-    }
     try {
-      return await NotesModel.find({ _id: { $in: ids }})
+      if (!ids) return await NotesModel.find()
+      return await NotesModel.find({ _id: { $in: ids } })
     } catch (err) {
       console.log(err)
-      return null
+      return []
     }
   }
   static async getFavorites() {
@@ -56,17 +49,14 @@ class Notes {
       return await NotesModel.find({ favorite: true })
     } catch (err) {
       console.log(err)
-      return null
+      return []
     }
   }
   static async toggleFavorite(_id) {
     try {
       const isFavorite = (await NotesModel.findOne({ _id })).favorite
-      if(isFavorite){
-        await NotesModel.updateOne({ _id },{ $set: { favorite: false } })
-        return
-      }
-      await NotesModel.updateOne({ _id },{ $set: { favorite: true } })
+      await NotesModel.updateOne({ _id }, { $set: { favorite: !isFavorite } })
+      return !isFavorite
     } catch (err) {
       console.log(err)
       return null
@@ -78,6 +68,15 @@ class Notes {
     } catch (err) {
       console.log(err)
       return null
+    }
+  }
+  static async search(text) {
+    try {
+      return await NotesModel.find({ $text: { $search: text } })
+      // return await NotesModel.find({ title: { $regex: text } })
+    } catch (err) {
+      console.log(err)
+      return []
     }
   }
 }

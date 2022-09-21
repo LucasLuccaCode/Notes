@@ -1,9 +1,10 @@
 <div class="c-content__header">
-  <form action="/" method="GET">
+  <form action="/search" method="POST">
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>" required>
     <button type="submit">
       <img src="/icons/search.png" alt="Search">
     </button>
-    <input type="search" placeholder="Search">
+    <input type="search" name="text" placeholder="Buscar por palavra em um título">
   </form>
   <div class="c-content__profile">
     <a href="#">

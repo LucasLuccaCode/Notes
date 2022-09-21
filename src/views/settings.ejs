@@ -1,5 +1,7 @@
 <%- include("./includes/head") %>
-  <script src="/assets/js/index.js" defer></script>
+  <link rel="stylesheet" href="/assets/css/nav.css">
+  <link rel="stylesheet" href="/assets/css/settings.css">
+  <script src="/assets/js/settings.js" defer></script>
   <title>Notes</title>
   </head>
 
@@ -12,24 +14,30 @@
         <div class="c-content">
           <%- include("./includes/content") %>
           <%- include("./includes/nav") %>
-            <div class="c-content__content c-settings">
-              <h2></h2>
-              <form>
-                <div>
-                  <label for="theme">labelTema: </label>
-                  <input type="color" name="theme" id="theme">
-                </div>
-                <div>
-                  <label for="font_size">Tamanho da fonte: </label>
-                  <input type="number" name="font_size" id="font_size" value="0" max="10" min="0">
-                </div>
-                <div>
-                  <label for="columns">Número de notas por colunas:</label>
-                  <input type="number" name="columns" id="columns" value="0" max="10" min="0">
-                </div>
-                <button type="submit">Salvar</button>
-              </form>
+          <ul class="c-content__content c-settings" data-settings>
+            <h2>Configurações</h2>
+            <li data-settings="font-size">
+              <label class="nowrap" for="font-size">Tamanho dos textos</label>
+              <input type="number" value="4" min="10" max="40" id="font-size">
+            </li>
+            <li data-settings="number-columns">
+              <label class="nowrap" for="number-columns">Número de colunas</label>
+              <input type="number" value="4" min="1" max="10" id="number-columns">
+            </li>
+            <li data-settings="line-camp">
+              <label class="nowrap" for="line-camp">Número de linhas da descrição</label>
+              <input type="number" value="6" min="1" max="10" id="line-camp">
+            </li>
+            <li data-settings="details-color">
+              <label class="nowrap" for="details-color">Cor dos detalhes</label>
+              <label class="details-color" for="details-color">a</label>
+              <input type="color" value="#00b1ff" id="details-color">
+            </li>
+            <div class="buttons">
+              <button data-settings="reset">Restaurar</button>
+              <button data-settings="save">Salvar</button>
             </div>
+          </ul>
         </div>
     </section>
   </body>

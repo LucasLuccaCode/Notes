@@ -6,18 +6,29 @@ exports.viewNote = async (req, res) => {
   const note = await Notes.getNote(_id)
   const recents = new Recents(note._id)
   await recents.register()
-  res.render("viewNote", { note })
+  res.render("viewNote", { 
+    note, 
+    menu: req.session.menu 
+  })
 }
 
 exports.form = async (req, res) => {
-  const action = req.query.action
-  const id = req.query.id
+  const { action, id } = req.query
   if (id) {
     const note = await Notes.getNote(id)
-    res.render("formNote", { action, id, note })
+    res.render("formNote", { 
+      action, 
+      id, 
+      note, 
+      menu: req.session.menu 
+    })
     return
   }
-  res.render("formNote", { action, id })
+  res.render("formNote", { 
+    action, 
+    id, 
+    menu: req.session.menu 
+  })
 }
 
 exports.register = async (req, res) => {
@@ -33,10 +44,9 @@ exports.register = async (req, res) => {
 }
 
 exports.update = async (req, res) => {
-  const _id = req.query.id
   try {
     const note = new Notes(req.body)
-    await note.update(_id)
+    await note.update(req.query.id)
     res.redirect("/")
     return
   } catch (err) {
@@ -46,9 +56,8 @@ exports.update = async (req, res) => {
 }
 
 exports.delete = async (req, res) => {
-  const id = req.query.id
   try {
-    await Notes.delete(id)
+    await Notes.delete(req.query.id)
     res.redirect("/")
     return
   } catch (err) {
@@ -58,7 +67,8 @@ exports.delete = async (req, res) => {
 }
 
 exports.favorite = async (req, res) => {
-  const id = req.query.id
-  await Notes.toggleFavorite(id)
+  const isFavorite = await Notes.toggleFavorite(req.query.id)
+  if(isFavorite == null) return res.redirect("back")
+  isFavorite ? ++req.session.menu.favorites : --req.session.menu.favorites
   res.redirect("back")
 }

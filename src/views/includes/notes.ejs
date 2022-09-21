@@ -1,10 +1,10 @@
 <ul class="c-content__notes">
   <% if(notes.length){ %>
     <% notes.forEach( note => { %>
-      <li class="card">
+      <li class="c-card">
         <a href="/note/view/<%= note._id %>">
 
-          <div class="card-title">
+          <div class="c-card__title">
             <div class="pointers">
               <span></span>
               <span></span>
@@ -12,20 +12,28 @@
             </div>
             <p><%= note.title %></p>
           </div>
-          <div class="card-description">
+          <div class="c-card__description">
             <p>
               <%= note.description %>
             </p>
           </div>
-          <div class="card-footer">
+          <div class="c-card__footer">
             <p><%= note.date %></p>
           </div>
         </a>
       </li>
     <% }) %>  
   <% } else { %>
-    <li class="card">
-      <p>Nenhuma nota adicionada ainda...</p>
+    <li class="empty">
+      <% if(nav == "all") { %>
+        <p>Nenhuma nota adicionada ainda...</p>
+      <% } else if(nav == "favorites") { %>
+        <p>Nenhuma nota adicionada como favorita ainda...</p>
+      <% } else if(nav == "recents") { %>
+        <p>Nenhuma nota recente ainda...</p>
+      <% } else if(nav == "search") { %>
+        <p>Nenhum resultado para a pesquisa...</p>
+      <% } %>
     </li>
   <% } %>
 </ul>

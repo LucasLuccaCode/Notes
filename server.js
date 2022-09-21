@@ -36,8 +36,9 @@ const session = require("./src/middlewares/sessionMiddlewares")
 app.use(session)
 
 //Csrf
-const { csrfError } = require("./src/middlewares/csrfMiddlewares")
+const { csrfError, setCsrfToken } = require("./src/middlewares/csrfMiddlewares")
 app.use(csrf())
+app.use(setCsrfToken)
 app.use(csrfError)
 
 //Routes

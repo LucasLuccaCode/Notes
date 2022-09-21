@@ -1,0 +1,48 @@
+.c-view_notes {
+  flex: 1;
+}
+
+.c-view_notes a {
+  display: inline-flex;
+}
+
+.c-view_notes img {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.c-view_notes img:active {
+  transform: scale(.80);
+}
+
+.c-view_notes h2 {
+  font-size: 1rem;
+  color: #aaaab0;
+  margin-top: 1rem;
+}
+
+.c-view_notes h3 {
+  font-size: .9rem;
+  margin-top: .5rem;
+  color: #efefff;
+  font-weight: 450;
+}
+
+.c-view_notes .buttons {
+  --_color: #efefff;
+  margin-top: 1rem;
+}
+
+.c-view_notes .buttons a {
+  cursor: pointer;
+  padding: .4rem .8rem;
+  font-size: .7rem;
+  border-radius: .2rem;
+  font-weight: bold;
+  border: 2px solid var(--_color);
+  color: var(--_color);
+}
+
+.c-view_notes .buttons a:active {
+  transform: scale(.95)
+}

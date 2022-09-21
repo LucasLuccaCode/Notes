@@ -1,11 +1,16 @@
 :root {
-  --details-color: #00b1ff;
-  --details-color-dark: #0090cf;
   --primary-color: #2a2a2a;
   --secondary-color: #444444;
-  --text-color-dark: #747383;
-  --margin-default: .7rem;
+  --details-color: #00b1ff;
+  --text-color-dark: #747379;
+  --margin-default: .5rem;
+  --b-radius: .3rem;
+  --margin-top: 1rem;
+  
   --font-size: 18px;
+  --number-columns: 4;
+  --line-camp: 6;
+  --theme: #00b1ff;
 }
 
 * {
@@ -14,7 +19,7 @@
   box-sizing: border-box;
 }
 
-body, 
+body,
 html {
   width: 100%;
   height: 100%;
@@ -22,7 +27,7 @@ html {
 }
 
 li {
-  list-style: none; 
+  list-style: none;
 }
 
 a {
@@ -41,4 +46,8 @@ input {
   height: 100%;
 }
 
-
+.caption {
+  text-align: center;
+  font-size: 1rem;
+  color: var(--_color);
+}

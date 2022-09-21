@@ -3,24 +3,30 @@ const Recents = require("../models/Recents")
 
 exports.favorites = async (req, res) => {
   const favorites = await Notes.getFavorites()
-  if (favorites.length) {
-    res.render("home", { notes: favorites, nav: "favorites" })
-    return
-  }
-  res.send(`<a href="/">Voltar</a><br><p>Nenhum favorito adicionado</p>`)
+  res.render("home", {
+    notes: favorites,
+    nav: "favorites",
+    menu: req.session.menu
+  })
 }
 
 exports.recents = async (req, res) => {
   const recents = await Recents.getRecents()
+  let recentsNotes = []
   if (recents.length) {
     const recentsIds = recents.map(({ note_id }) => note_id)
-    const recentsNotes = await Notes.getNotes(recentsIds)
-    res.render("home", { notes: recentsNotes, nav: "recents" })
-    return
+    recentsNotes = await Notes.getNotes(recentsIds)
   }
-  res.send(`<a href="/">Voltar</a><br><p>Nenhum nenhuma nota recente salva ainda...</p>`)
+  res.render("home", {
+    notes: recentsNotes,
+    nav: "recents",
+    menu: req.session.menu
+  })
 }
 
 exports.settings = (req, res) => {
-  res.render("settings", { nav: "settings" })
+  res.render("settings", {
+    nav: "settings",
+    menu: req.session.menu
+  })
 }
